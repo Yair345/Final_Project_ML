@@ -1,0 +1,188 @@
+🛡️  BINARY DEFENSE DETECTION WITH RANDOM FOREST 🛡️
+======================================================================
+Goal: Detect if defense mechanisms are active (regardless of attacks)
+======================================================================
+
+Step 1: Loading simulation data...
+Loading 883 files from baseline scenario -> Label: 0
+Loading 876 files from defense scenario -> Label: 1
+Loading 871 files from defense_vs_attack scenario -> Label: 1
+
+Dataset distribution:
+No Defense (0): 15894 samples
+Defense Active (1): 31446 samples
+Total records loaded: 47340
+
+Step 2: Preprocessing data for binary classification...
+Features available: 18
+Binary classification: {1: 1747, 0: 883}
+
+============================================================
+DEFENSE INDICATORS ANALYSIS
+============================================================
+
+Analyzing 14 key defense indicators:
+========================================
+
+PacketDeliveryRatio:
+  No Defense:   99.9934
+  With Defense: 99.9951
+  Difference:   +0.0017
+
+PacketLossRatio:
+  No Defense:   13578443.6660
+  With Defense: 15000659.8782
+  Difference:   +1422216.2122
+  → Defense increases this metric by 10.5%!
+
+EndToEndDelay:
+  No Defense:   0.0003
+  With Defense: 0.0003
+  Difference:   +0.0000
+
+AverageHopCount:
+  No Defense:   0.0612
+  With Defense: 0.0612
+  Difference:   +0.0000
+
+HELLOPacketsPerSec:
+  No Defense:   26.3158
+  With Defense: 26.3158
+  Difference:   +0.0000
+
+TCPacketsPerSec:
+  No Defense:   125.9039
+  With Defense: 123.6860
+  Difference:   -2.2179
+
+RoutingOverhead:
+  No Defense:   2.9969
+  With Defense: 2.9305
+  Difference:   -0.0664
+
+NormalizedRoutingLoad:
+  No Defense:   2.9969
+  With Defense: 2.9305
+  Difference:   -0.0664
+
+MACLayerOverhead:
+  No Defense:   0.0000
+  With Defense: 0.0000
+  Difference:   +0.0000
+
+AverageTCPacketRows:
+  No Defense:   2.4878
+  With Defense: 2.4677
+  Difference:   -0.0201
+
+MIDPacketsPerSec:
+  No Defense:   0.0000
+  With Defense: 0.0000
+  Difference:   +0.0000
+
+HNAPacketsPerSec:
+  No Defense:   0.0000
+  With Defense: 0.0000
+  Difference:   +0.0000
+
+MACDataPacketsPerSec:
+  No Defense:   43.1622
+  With Defense: 43.1827
+  Difference:   +0.0205
+
+MACControlPacketsPerSec:
+  No Defense:   0.0000
+  With Defense: 0.0000
+  Difference:   +0.0000
+
+Step 4: Training Binary Random Forest model...
+Starting hyperparameter tuning for binary classification...
+Fitting 5 folds for each of 486 candidates, totalling 2430 fits
+Best parameters: {'class_weight': 'balanced', 'max_depth': 20, 'max_features': None, 'min_samples_leaf': 2, 'min_samples_split': 10, 'n_estimators': 300}
+Best cross-validation AUC: 0.7295
+Test accuracy: 0.6527
+Test AUC: 0.7281
+
+Step 5: Evaluating binary model...
+
+============================================================
+BINARY DEFENSE DETECTION - EVALUATION RESULTS
+============================================================
+
+Classification Report:
+                precision    recall  f1-score   support
+
+    No Defense       0.48      0.52      0.50       265
+Defense Active       0.75      0.72      0.73       524
+
+      accuracy                           0.65       789
+     macro avg       0.62      0.62      0.62       789
+  weighted avg       0.66      0.65      0.66       789
+
+
+Confusion Matrix:
+[[137 128]
+ [146 378]]
+
+Confusion Matrix Interpretation:
+True Negatives (correctly identified no defense): 137
+False Positives (incorrectly detected defense): 128
+False Negatives (missed defense): 146
+True Positives (correctly detected defense): 378
+
+Key Metrics:
+Accuracy: 0.6527
+AUC Score: 0.7281
+Precision: 0.7470 (of all defense predictions, how many were correct)
+Recall: 0.7214 (of all actual defenses, how many were detected)
+F1-Score: 0.7340 (harmonic mean of precision and recall)
+
+Cross-validation AUC scores: [0.73650428 0.70700026 0.71959281 0.73034677 0.75380786]
+Mean CV AUC: 0.7295 (+/- 0.0316)
+
+Step 6: Generating visualizations...
+C:\Users\Nadav\PycharmProjects\PythonProject\binary_defense_detection.py:408: FutureWarning:
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(data=top_features, x='importance', y='feature', palette='viridis')
+
+Top 15 Defense Detection Features:
+--------------------------------------------------
+12. NormalizedRoutingLoad         : 0.1379
+15. RoutingOverhead               : 0.1357
+16. TCPacketsPerSec               : 0.1304
+ 9. MACDataPacketsPerSec          : 0.1295
+ 1. AverageHopCount               : 0.1085
+ 7. Jitter                        : 0.0990
+17. Throughput                    : 0.0943
+ 2. AverageTCPacketRows           : 0.0793
+ 3. EndToEndDelay                 : 0.0688
+13. PacketDeliveryRatio           : 0.0131
+14. PacketLossRatio               : 0.0035
+10. MACLayerOverhead              : 0.0000
+ 5. HELLOPacketsPerSec            : 0.0000
+ 6. HNAPacketsPerSec              : 0.0000
+ 4. EnergyEfficiency              : 0.0000
+Optimal threshold: 0.7567
+At optimal threshold: TPR=0.4885, FPR=0.0377
+
+Step 7: Saving binary model results...
+
+======================================================================
+BINARY DEFENSE DETECTION ANALYSIS COMPLETE!
+======================================================================
+Key Results:
+• Model achieved 65.3% accuracy in detecting defenses
+• AUC Score: 0.728 (closer to 1.0 = better)
+• Precision: 0.747 (false positive rate)
+• Recall: 0.721 (defense detection rate)
+
+Top 3 Defense Indicators:
+  12. NormalizedRoutingLoad: 0.1379
+  15. RoutingOverhead: 0.1357
+  16. TCPacketsPerSec: 0.1304
+
+Optimal detection threshold: 0.757
+
+This model can now detect defense presence in new network simulations!

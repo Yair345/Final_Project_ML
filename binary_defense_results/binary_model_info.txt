@@ -1,0 +1,19 @@
+BINARY DEFENSE DETECTION MODEL
+========================================
+
+Best parameters: {'class_weight': 'balanced', 'max_depth': 10, 'max_features': None, 'min_samples_leaf': 4, 'min_samples_split': 10, 'n_estimators': 200}
+Test accuracy: 0.6298
+Test AUC: 0.6937
+Number of features: 18
+
+Top 10 most important features:
+ 1. AverageHopCount          : 0.2306
+ 9. MACDataPacketsPerSec     : 0.1741
+15. RoutingOverhead          : 0.1564
+12. NormalizedRoutingLoad    : 0.1541
+16. TCPacketsPerSec          : 0.0857
+17. Throughput               : 0.0554
+ 7. Jitter                   : 0.0537
+ 2. AverageTCPacketRows      : 0.0439
+ 3. EndToEndDelay            : 0.0333
+13. PacketDeliveryRatio      : 0.0085
