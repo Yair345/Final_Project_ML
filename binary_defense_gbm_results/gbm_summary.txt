@@ -1,0 +1,10 @@
+GRADIENT BOOSTING MACHINES - BINARY DEFENSE DETECTION
+============================================================
+
+Model Performance Summary:
+------------------------------
+XGBOOST        : Accuracy=0.6378, AUC=0.6983
+LIGHTGBM       : Accuracy=0.6366, AUC=0.7072
+SKLEARN_GBM    : Accuracy=0.6536, AUC=0.6981
+
+Best Model: LIGHTGBM

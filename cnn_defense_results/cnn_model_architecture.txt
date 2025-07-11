@@ -1,0 +1,70 @@
+Test Results:
+Test Accuracy: 0.5902
+Test Precision: 0.8858
+Test Recall: 0.4274
+Test AUC: 0.7026
+
+Step 5: Evaluating CNN model...
+
+============================================================
+CNN BINARY DEFENSE DETECTION - EVALUATION RESULTS
+============================================================
+
+Classification Report:
+                precision    recall  f1-score   support
+
+    No Defense       0.45      0.90      0.60      1293
+Defense Active       0.89      0.43      0.58      2431
+
+      accuracy                           0.59      3724
+     macro avg       0.67      0.66      0.59      3724
+  weighted avg       0.74      0.59      0.59      3724
+
+
+Confusion Matrix:
+[[1159  134]
+ [1392 1039]]
+
+Confusion Matrix Interpretation:
+True Negatives (correctly identified no defense): 1159
+False Positives (incorrectly detected defense): 134
+False Negatives (missed defense): 1392
+True Positives (correctly detected defense): 1039
+
+Key Metrics:
+Accuracy: 0.5902
+AUC Score: 0.7026
+Precision: 0.8858 (of all defense predictions, how many were correct)
+Recall: 0.4274 (of all actual defenses, how many were detected)
+F1-Score: 0.5766 (harmonic mean of precision and recall)
+
+Step 6: Generating visualizations...
+Optimal threshold: 0.4917
+At optimal threshold: TPR=0.4447, FPR=0.1176
+
+Step 7: Calculating feature importance...
+Calculating CNN feature importance (this may take a while)...
+Processed 1/18 features
+Processed 4/18 features
+Processed 7/18 features
+Processed 10/18 features
+Processed 13/18 features
+Processed 16/18 features
+
+Top 15 CNN Defense Detection Features:
+--------------------------------------------------
+12. NormalizedRoutingLoad         : 0.0806
+ 9. MACDataPacketsPerSec          : 0.0717
+15. RoutingOverhead               : 0.0252
+ 7. Jitter                        : 0.0083
+13. PacketDeliveryRatio           : 0.0032
+14. PacketLossRatio               : 0.0027
+11. MIDPacketsPerSec              : 0.0000
+10. MACLayerOverhead              : 0.0000
+ 4. EnergyEfficiency              : 0.0000
+ 5. HELLOPacketsPerSec            : 0.0000
+18. TotalEnergyConsumed           : 0.0000
+ 8. MACControlPacketsPerSec       : 0.0000
+ 6. HNAPacketsPerSec              : 0.0000
+ 1. AverageHopCount               : -0.0062
+16. TCPacketsPerSec               : -0.0064

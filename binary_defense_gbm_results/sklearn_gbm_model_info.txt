@@ -1,0 +1,19 @@
+SKLEARN_GBM DEFENSE DETECTION MODEL
+========================================
+
+Best parameters: {'learning_rate': 0.01, 'max_depth': 6, 'n_estimators': 200, 'subsample': 0.8}
+Test accuracy: 0.6536
+Test AUC: 0.6981
+Number of features: 18
+
+Top 10 most important features:
+ 1. AverageHopCount          : 0.2372
+15. RoutingOverhead          : 0.1770
+12. NormalizedRoutingLoad    : 0.1718
+ 9. MACDataPacketsPerSec     : 0.1701
+16. TCPacketsPerSec          : 0.0738
+17. Throughput               : 0.0473
+ 7. Jitter                   : 0.0406
+ 2. AverageTCPacketRows      : 0.0323
+ 3. EndToEndDelay            : 0.0284
+13. PacketDeliveryRatio      : 0.0142

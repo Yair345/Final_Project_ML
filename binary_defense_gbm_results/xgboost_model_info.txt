@@ -1,0 +1,19 @@
+XGBOOST DEFENSE DETECTION MODEL
+========================================
+
+Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.01, 'max_depth': 6, 'n_estimators': 300, 'scale_pos_weight': 0.5317898695498884, 'subsample': 0.8}
+Test accuracy: 0.6378
+Test AUC: 0.6983
+Number of features: 18
+
+Top 10 most important features:
+ 9. MACDataPacketsPerSec     : 0.1799
+15. RoutingOverhead          : 0.1728
+12. NormalizedRoutingLoad    : 0.1668
+ 1. AverageHopCount          : 0.1568
+16. TCPacketsPerSec          : 0.0569
+17. Throughput               : 0.0532
+ 7. Jitter                   : 0.0457
+ 3. EndToEndDelay            : 0.0442
+14. PacketLossRatio          : 0.0440
+13. PacketDeliveryRatio      : 0.0436

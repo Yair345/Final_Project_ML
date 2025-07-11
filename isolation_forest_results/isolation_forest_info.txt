@@ -1,0 +1,19 @@
+ISOLATION FOREST DEFENSE DETECTION MODEL
+==================================================
+
+Best parameters: {'bootstrap': False, 'contamination': 0.2, 'max_features': 0.8, 'max_samples': 1.0, 'n_estimators': 100, 'random_state': 42}
+Test accuracy: 0.4563
+Test AUC: 0.5482
+Number of features: 18
+
+Top 10 anomaly indicator features:
+ 5. HELLOPacketsPerSec       : Effect size=1.414
+12. NormalizedRoutingLoad    : Effect size=0.166
+15. RoutingOverhead          : Effect size=0.166
+ 1. AverageHopCount          : Effect size=0.129
+ 7. Jitter                   : Effect size=0.101
+ 2. AverageTCPacketRows      : Effect size=0.072
+16. TCPacketsPerSec          : Effect size=0.061
+ 3. EndToEndDelay            : Effect size=0.056
+17. Throughput               : Effect size=0.039
+ 9. MACDataPacketsPerSec     : Effect size=0.023

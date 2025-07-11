@@ -1,0 +1,19 @@
+LIGHTGBM DEFENSE DETECTION MODEL
+========================================
+
+Best parameters: {'class_weight': 'balanced', 'colsample_bytree': 0.8, 'learning_rate': 0.01, 'max_depth': 10, 'n_estimators': 200, 'subsample': 0.8}
+Test accuracy: 0.6366
+Test AUC: 0.7072
+Number of features: 18
+
+Top 10 most important features:
+ 1. AverageHopCount          : 1620.0000
+12. NormalizedRoutingLoad    : 1533.0000
+ 9. MACDataPacketsPerSec     : 1238.0000
+16. TCPacketsPerSec          : 396.0000
+15. RoutingOverhead          : 320.0000
+ 7. Jitter                   : 299.0000
+ 3. EndToEndDelay            : 210.0000
+17. Throughput               : 177.0000
+ 2. AverageTCPacketRows      : 119.0000
+14. PacketLossRatio          : 57.0000
